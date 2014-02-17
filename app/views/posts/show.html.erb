@@ -8,4 +8,13 @@
   <%= @post.text %>
 </p>
 
-<%= link_to 'What was your sacrifice? Add it to the list and make these zebras proud! They might even go to sleep, the noisy beasts', new_post_path %>
+<%= link_to 'Not sure how to honor the zebras? Here are what the other animals have done...', posts_path %>
+
+<br>
+<br>
+<%= link_to "What am I responding to, again? So. Confused.", controller: "welcome" %>
+
+<br>
+<br>
+
+<%= link_to 'Control Z--Edit, please!', edit_post_path(@post) %>
