@@ -1,0 +1,23 @@
+<h1>How did your fellow animals honour the stampeding zebras? Read and learn; it might just save your life! Zebras don't like to be disrespected....</h1>
+
+<br>
+<%= link_to 'What was your sacrifice? Add it to the list and make these zebras proud! They might even go to ssleep, the noisy beasts', new_post_path %>
+<br>
+<br>
+<%= link_to "What am I responding to, again? So. Confused.", controller: "welcome" %>
+<br>
+<br>
+ 
+<table>
+  <tr>
+    <th>Animal:</th>
+    <th>Sacrifice:</th>
+  </tr>
+ 
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.text %></td>
+    </tr>
+  <% end %>
+</table>
