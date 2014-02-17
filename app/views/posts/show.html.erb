@@ -8,6 +8,35 @@
   <%= @post.text %>
 </p>
 
+<h2>Past Comments:</h2>
+<% @post.comments.each do |comment| %>
+	<p>
+		<strong>Animal:</strong>
+		<%= comment.commenter %>
+	</p>
+	<p>
+		<strong>Comment:</strong>
+		<%= comment.body %>
+	</p>
+<% end %>
+
+<h2>Comments, feedback, concerns, tribulations...</h2>
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+	<p>
+		<%= f.label :commenter %><br />
+		<%= f.text_field :commenter %>
+	</p>
+	<p>
+		<%= f.label :body %><br />
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+
 <%= link_to 'Not sure how to honor the zebras? Here are what the other animals have done...', posts_path %>
 
 <br>
