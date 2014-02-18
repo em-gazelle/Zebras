@@ -1,0 +1,8 @@
+<ul class="simpleVert">
+	<li><strong><%= comment.commenter %></strong>
+		<p><%= comment.body %></p>
+	</li>
+	<li><sub>
+		<%= link_to 'Quick, make my comment disappear!', [comment.post, comment], method: :delete, data: {confirm: 'Are ya sure?' } %>
+	</sub></li>
+</ul>

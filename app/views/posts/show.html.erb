@@ -1,3 +1,4 @@
+<h1>Here's what THIS animal did to honor the pink stampeding zebras....</h1>
 <p>
   <strong>Animal:</strong>
   <%= @post.title %>
@@ -9,33 +10,11 @@
 </p>
 
 <h2>Past Comments:</h2>
-<% @post.comments.each do |comment| %>
-	<p>
-		<strong>Animal:</strong>
-		<%= comment.commenter %>
-	</p>
-	<p>
-		<strong>Comment:</strong>
-		<%= comment.body %>
-	</p>
-<% end %>
+<%= render @post.comments %>
 
 <h2>Comments, feedback, concerns, tribulations...</h2>
 
-<%= form_for([@post, @post.comments.build]) do |f| %>
-	<p>
-		<%= f.label :commenter %><br />
-		<%= f.text_field :commenter %>
-	</p>
-	<p>
-		<%= f.label :body %><br />
-		<%= f.text_area :body %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
-
+<%= render "comments/form" %>
 
 <%= link_to 'Not sure how to honor the zebras? Here are what the other animals have done...', posts_path %>
 
