@@ -1,0 +1,17 @@
+!!!
+%html
+	%head
+		%title Honour the Pink Zebras
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%div#navbar
+		%ul.vertical
+			%li
+				%h1#logo= link_to 'Honour the Pink Zebras!', controller: "welcome"
+			%li
+				%ul
+					%li.horizontal= link_to 'Make a sacrifice! |||| ', new_post_path
+					%li.horizontal= link_to 'View what others have given...', controller: "posts"
+	%body
+		= yield

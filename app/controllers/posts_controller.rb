@@ -1,7 +1,33 @@
 class PostsController < ApplicationController
 	def new
 		@post = Post.new
+
+	def sendMessage
+		account_sid = "ACce2ac884ee78da5155fc87f7bbc0cb4a" 
+		auth_token = "40f5a6b6a24f8cae7760b7151563a18a" 
+
+		client = Twilio::REST::Client.new account_sid, auth_token
+
+		from = "+16087136449" # Your Twilio number
+		friends = {
+			"+18155203817" => "Emilia"
+		}
+
+		friends.each do |key, value|
+			client.account.messages.create(
+				:from => from,
+				:to => key,
+				:body => "Hey #{value}, Monkey party at 6PM. Bring Bananas!"
+			)
+			puts "Sent message to #{value}"
+		end
+	
+	end
+	sendMessage
 	end	
+
+
+
 	def create
 #		render text: params[:post].inspect
 		@post = Post.new(params[:post])
